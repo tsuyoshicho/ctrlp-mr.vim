@@ -24,6 +24,12 @@ hook_add = '''
 '''
 ```
 
+```
+:CtrlPMRMru
+:CtrlPMRMrw
+:CtrlPMRMrr
+```
+
 ## Features
 
 Support mru/mrw/mrr list
