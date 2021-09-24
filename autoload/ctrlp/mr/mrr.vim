@@ -20,6 +20,8 @@ let g:ctrlp_ext_vars = get(g:, 'ctrlp_ext_vars', []) + [
       \  {
       \    'init'  : 'ctrlp#mr#mrr#init()',
       \    'accept': 'ctrlp#mr#mrr#accept',
+      \    'enter' : 'ctrlp#mr#mrr#enter()',
+      \    'exit'  : 'ctrlp#mr#mrr#exit()',
       \    'lname' : 'mr.vim mrr',
       \    'sname' : 'mr_mrr',
       \    'type'  : 'path',
@@ -36,12 +38,20 @@ function! ctrlp#mr#mrr#id() abort
 endfunction
 
 function! ctrlp#mr#mrr#init() abort
-  return mr#mrr#list()
+  return s:mrr
 endfunction
 
 function! ctrlp#mr#mrr#accept(mode, str) abort
   call ctrlp#exit()
   execute 'edit' a:str
+endfunction
+
+function! ctrlp#spelunker#enter() abort
+  let s:mrr = mr#mrr#list()
+endfunction
+
+function! ctrlp#spelunker#exit()
+  unlet s:mrr
 endfunction
 
 let &cpo = s:save_cpo
