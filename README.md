@@ -1,6 +1,6 @@
 # README
 <!-- image or gif -->
-
+![ctrlp-mr example animation](https://user-images.githubusercontent.com/96727/134691769-8386412b-8ce4-401a-82ac-303990a20058.gif)
 
 ## Overview
 
@@ -24,7 +24,7 @@ hook_add = '''
 '''
 ```
 
-```
+```text
 :CtrlPMRMru
 :CtrlPMRMrw
 :CtrlPMRMrr
