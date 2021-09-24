@@ -20,7 +20,7 @@ repo = 'tsuyoshicho/ctrlp-mr.vim'
 depends = ['ctrlp.vim']
 hook_add = '''
   let g:ctrlp_extensions = get(g:, 'ctrlp_extensions', [])
-        \ + ['mr_mru', 'mr_mrw', 'mr_mrr']
+        \ + ['mr/mru', 'mr/mrw', 'mr/mrr']
 '''
 ```
 
