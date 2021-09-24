@@ -46,11 +46,11 @@ function! ctrlp#mr#mru#accept(mode, str) abort
   execute 'edit' a:str
 endfunction
 
-function! ctrlp#spelunker#enter() abort
+function! ctrlp#mr#mru#enter() abort
   let s:mru = mr#mru#list()
 endfunction
 
-function! ctrlp#spelunker#exit()
+function! ctrlp#mr#mru#exit() abort
   unlet s:mru
 endfunction
 
