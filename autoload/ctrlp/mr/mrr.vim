@@ -42,12 +42,30 @@ function! ctrlp#mr#mrr#init() abort
 endfunction
 
 function! ctrlp#mr#mrr#accept(mode, str) abort
+  let path = a:str
   call ctrlp#exit()
-  execute 'edit' a:str
+  " 'mode' is 'h' / <C-x>  : open directory
+  " 'mode' is 'e' / <CR>   : change directory in buffer (lcd)
+  " 'mode' is 'v' / <C-v>  : change directory in vim (cd)
+  " 'mode' is 't' / <C-t>  : change directory in tab (tcd)
+  if a:mode ==? 'h'
+    execute 'edit' path
+  else
+    let cmd = 'lcd'
+    if a:mode ==? 'v'
+      let cmd = 'cd'
+    elseif a:mode ==? 't'
+      let cmd = 'tcd'
+    endif
+    call ctrlp#setdir(path, cmd)
+  endif
 endfunction
 
 function! ctrlp#mr#mrr#enter() abort
   let s:mrr = mr#mrr#list()
+  if get(g:, 'ctrlp_mr_mrr_curdir_base', v:false)
+    let s:mrr = mr#filter(s:mrr, getcwd())
+  endif
 endfunction
 
 function! ctrlp#mr#mrr#exit() abort
@@ -56,4 +74,3 @@ endfunction
 
 let &cpo = s:save_cpo
 unlet s:save_cpo
-

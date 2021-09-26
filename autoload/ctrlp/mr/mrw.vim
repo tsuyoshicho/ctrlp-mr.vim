@@ -48,6 +48,9 @@ endfunction
 
 function! ctrlp#mr#mrw#enter() abort
   let s:mrw = mr#mrw#list()
+  if get(g:, 'ctrlp_mr_mrw_curdir_base', v:false)
+    let s:mrw = mr#filter(s:mrw, getcwd())
+  endif
 endfunction
 
 function! ctrlp#mr#mrw#exit() abort
