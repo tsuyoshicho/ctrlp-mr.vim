@@ -1,6 +1,6 @@
-*ctrlp-mr.vim.txt*	a summary
+*ctrlp-mr.vim.txt*	a summary of ctrlp-mr.vim
 
-Version :
+Version : undefined
 Author  : Tsuyoshi CHO <Tsuyoshi.CHO+develop@Gmail.com>
 License : MIT license  {{{
     Permission is hereby granted, free of charge, to any person obtaining
@@ -36,7 +36,7 @@ INTERFACE			|ctrlp-mr-interface|
 ==============================================================================
 INTRODUCTION					*ctrlp-mr-introduction*
 
-*ctrlp-mr.vim* is a CtrlP Vim plugin that select to mr.vim's soruce
+*ctrlp-mr.vim* is a |CtrlP| Vim plugin that select to |mr.vim|'s soruce
 (mru/mrw/mrr) file/directory.
 
 Latest version:
@@ -55,28 +55,35 @@ Setup below:
 ==============================================================================
 INTERFACE					*ctrlp-mr-interface*
 
-Nothing.
-
-
 ------------------------------------------------------------------------------
 VARIABLES					*ctrlp-mr-variables*
 
-Nothing.
+g:ctrlp_mr_mru_curdir_base			  *g:ctrlp_mr_mru_curdir_base*
+g:ctrlp_mr_mrw_curdir_base			  *g:ctrlp_mr_mrw_curdir_base*
+g:ctrlp_mr_mrr_curdir_base			  *g:ctrlp_mr_mrr_curdir_base*
+  default value: v:false
+  When value is v:true, mru/mrw/mrr are list up entry under current directory.
+  Otherwise, mru/mrw/mrr list up all entry.
 
 
 ------------------------------------------------------------------------------
 COMMANDS					*ctrlp-mr-commands*
 
 :CtrlPMRMru					*:CtrlPMRMru*
-    Start CtrlP interface for mru
+    Start CtrlP interface for mru.
 
 
 :CtrlPMRMrw					*:CtrlPMRMrw*
-    Start CtrlP interface for mrw
+    Start CtrlP interface for mrw.
 
 
 :CtrlPMRMrr					*:CtrlPMRMrr*
-    Start CtrlP interface for mrr
+    Start CtrlP interface for mrr.
+    CtrlP select operation work below:
+      <C-x>  : open directory
+      <CR>   : change directory in buffer (lcd)
+      <C-v>  : change directory in vim (cd)
+      <C-t>  : change directory in tab (tcd)
 
 
 ------------------------------------------------------------------------------
