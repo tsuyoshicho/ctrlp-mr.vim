@@ -42,7 +42,6 @@ function! ctrlp#mr#mrw#init() abort
 endfunction
 
 function! ctrlp#mr#mrw#accept(...) abort
-  call ctrlp#exit()
   call call('ctrlp#acceptfile', a:000)
 endfunction
 

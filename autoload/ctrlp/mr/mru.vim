@@ -42,7 +42,6 @@ function! ctrlp#mr#mru#init() abort
 endfunction
 
 function! ctrlp#mr#mru#accept(...) abort
-  call ctrlp#exit()
   call call('ctrlp#acceptfile', a:000)
 endfunction
 
