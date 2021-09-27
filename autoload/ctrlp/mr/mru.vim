@@ -41,9 +41,9 @@ function! ctrlp#mr#mru#init() abort
   return s:mru
 endfunction
 
-function! ctrlp#mr#mru#accept(mode, str) abort
+function! ctrlp#mr#mru#accept(...) abort
   call ctrlp#exit()
-  execute 'edit' a:str
+  call call('ctrlp#acceptfile', a:000)
 endfunction
 
 function! ctrlp#mr#mru#enter() abort
