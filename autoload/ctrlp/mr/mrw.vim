@@ -19,7 +19,7 @@ let s:ctrlp_builtins = ctrlp#getvar('g:ctrlp_builtins')
 let g:ctrlp_ext_vars = get(g:, 'ctrlp_ext_vars', []) + [
       \  {
       \    'init'  : 'ctrlp#mr#mrw#init()',
-      \    'accept': 'ctrlp#acceptfile',
+      \    'accept': 'ctrlp#mr#mrw#accept',
       \    'enter' : 'ctrlp#mr#mrw#enter()',
       \    'exit'  : 'ctrlp#mr#mrw#exit()',
       \    'lname' : 'mr.vim mrw',
@@ -39,6 +39,11 @@ endfunction
 
 function! ctrlp#mr#mrw#init() abort
   return s:mrw
+endfunction
+
+function! ctrlp#mr#mrw#accept(mode, str) abort
+  call ctrlp#exit()
+  execute 'edit' a:str
 endfunction
 
 function! ctrlp#mr#mrw#enter() abort
